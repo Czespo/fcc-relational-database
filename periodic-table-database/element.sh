@@ -17,7 +17,7 @@ else
   if [[ $1 =~ ^[0-9]+$ ]]
   then
     # Try find element with atomic number.
-    ATOMIC_NUMBER=$($PSQL "SELECT atomic_number FROM elements WHERE atomic_number=$1");
+    ATOMIC_NUMBER=$($PSQL "SELECT atomic_number FROM elements WHERE atomic_number=$1")
     if [[ $ATOMIC_NUMBER ]]
     then
       SHOW_ELEMENT_INFO $1
@@ -26,7 +26,7 @@ else
     fi
   else
     # Find atomic number for symbol or name.
-    ATOMIC_NUMBER=$($PSQL "SELECT atomic_number FROM elements WHERE symbol='$1' OR name='$1'");
+    ATOMIC_NUMBER=$($PSQL "SELECT atomic_number FROM elements WHERE symbol='$1' OR name='$1'")
     if [[ $ATOMIC_NUMBER ]]
     then
       SHOW_ELEMENT_INFO $ATOMIC_NUMBER
